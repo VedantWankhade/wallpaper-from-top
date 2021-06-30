@@ -7,6 +7,8 @@ from PIL import Image
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
 
+process_mem = {}
+
 with open('top.out', 'r') as top_file:
     # skip first 7 rows
     top_output = top_file.read().split("\n")[7:]
@@ -17,6 +19,14 @@ with open('top.out', 'r') as top_file:
         # remove extra void spaces
         line = re.sub(r'\s+', ' ', line).strip()
         # print('2: ', line)
+        fields = line.split(" ")
+        # print("Fields: ", fields)
+        process = fields[11]
+        # 9th column is of memory consumption in %
+        memory_usage= fields[9]
+        print(memory_usage)
+        process_mem[process] = memory_usage
+        print(process_mem)
 
     # print(top_output)
 #     processes = ""

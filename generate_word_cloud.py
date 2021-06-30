@@ -3,7 +3,7 @@ import re
 import numpy as np
 import pandas as pd
 from os import path
-from PIL import Image
+from PIL import Image, ImageOps
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
 
@@ -35,12 +35,29 @@ with open('top.out', 'r') as top_file:
 #         processes += p + " "
 #     print(processes)
 
+img = Image.open("/home/vedant/Desktop/home-7-512.png")
 
-wc = WordCloud(width=1920, height=1080).generate_from_frequencies(process_mem)
+pixels = img.load()
+
+for i in range(img.size[0]):
+    for j in range(img.size[1]):
+        x,y,z = pixels[i,j][0],pixels[i,j][1],pixels[i,j][2]
+        x,y,z = abs(x-255), abs(y-255), abs(z-255)
+        pixels[i,j] = (x,y,z)
+
+img.save("home.png")
+
+mask = np.array(Image.open('home.png'))
+
+wc = WordCloud(stopwords=STOPWORDS,
+               mask=mask, background_color="white",
+               max_words=2000, max_font_size=256,
+               random_state=42, width=mask.shape[0],
+               height=mask.shape[0]).generate_from_frequencies(process_mem)
 
 plt.imshow(wc)
+plt.axis("off")
 plt.show()
 # wc = WordCloud().generate(processes)
 # plt.imshow(wc, interpolation='bilinear')
-# plt.axis("off")
 # plt.show()

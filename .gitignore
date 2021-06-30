@@ -1,3 +1,4 @@
 .idea
 top.out
 __pycache__/
+*.png

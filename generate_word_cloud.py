@@ -23,10 +23,10 @@ with open('top.out', 'r') as top_file:
         # print("Fields: ", fields)
         process = fields[11]
         # 9th column is of memory consumption in %
-        memory_usage= fields[9]
-        print(memory_usage)
+        memory_usage= float(fields[9])
+        # print(memory_usage)
         process_mem[process] = memory_usage
-        print(process_mem)
+        # print(process_mem)
 
     # print(top_output)
 #     processes = ""
@@ -34,7 +34,12 @@ with open('top.out', 'r') as top_file:
 #         p = line.split(" ")[-1]
 #         processes += p + " "
 #     print(processes)
-#
+
+
+wc = WordCloud(width=1920, height=1080).generate_from_frequencies(process_mem)
+
+plt.imshow(wc)
+plt.show()
 # wc = WordCloud().generate(processes)
 # plt.imshow(wc, interpolation='bilinear')
 # plt.axis("off")

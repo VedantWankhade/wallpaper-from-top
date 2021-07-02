@@ -2,17 +2,21 @@
 TODO:
     1. Change hardcoded image properties to obtain from a config file
     2. Better calculate the process-resource map
-    3. Separate generating wordcloud and generating wallpaper logic
+    3. Separate generating word cloud and generating wallpaper logic
 """
 
 import re
 
-import numpy as np
-import pandas as pd
-from os import path
-from PIL import Image, ImageOps
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-import matplotlib.pyplot as plt
+# import numpy as np
+# import pandas as pd
+# from os import path
+# from PIL import Image, ImageOps
+
+
+from wordcloud import WordCloud  # , STOPWORDS, ImageColorGenerator
+
+
+# import matplotlib.pyplot as plt
 
 process_mem = {}
 
@@ -30,7 +34,7 @@ with open('top.out', 'r') as top_file:
         # print("Fields: ", fields)
         process = fields[11]
         # 9th column is of memory consumption in %
-        memory_usage= float(fields[9])
+        memory_usage = float(fields[9])
         # print(memory_usage)
         process_mem[process] = memory_usage
         # print(process_mem)

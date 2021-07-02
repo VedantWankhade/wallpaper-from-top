@@ -2,7 +2,7 @@
 
 # TODO:
 # 1. Separate generating top output into different script
-# 2. Generate top output and wallapaper each time
+# 2. Generate top output and wallpaper each time
 # 3. Setting wallpaper automatically from Gnome DE
 
 # create new top output

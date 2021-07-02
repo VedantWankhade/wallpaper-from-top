@@ -18,7 +18,7 @@ python ./generate_word_cloud.py
 echo 'Setting up wallpaper'
 echo 'Please wait...'
 
-gwenview ./wc_wall.png
+# gwenview ./wc_wall.png
 
 # reference to setting kde plasma wallpaper from terminal: https://superuser.com/questions/488232/how-to-set-kde-desktop-wallpaper-from-command-line
 

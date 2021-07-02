@@ -1,3 +1,10 @@
+"""
+TODO:
+    1. Change hardcoded image properties to obtain from a config file
+    2. Better calculate the process-resource map
+    3. Separate generating wordcloud and generating wallpaper logic
+"""
+
 import re
 
 import numpy as np

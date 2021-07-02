@@ -61,9 +61,11 @@ wc = WordCloud(
     width=width,
     height=height).generate_from_frequencies(process_mem)
 
-plt.imshow(wc)
-plt.axis("off")
-plt.show()
+wc.to_file('wc_wall.png')
+
+# plt.imshow(wc)
+# plt.axis("off")
+# plt.show()
 # wc = WordCloud().generate(processes)
 # plt.imshow(wc, interpolation='bilinear')
 # plt.show()

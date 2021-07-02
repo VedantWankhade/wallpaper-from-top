@@ -35,25 +35,31 @@ with open('top.out', 'r') as top_file:
 #         processes += p + " "
 #     print(processes)
 
-img = Image.open("/home/vedant/Desktop/home-7-512.png")
+# Later figure out how to mask the wordcloud according to the most resource heavy process
 
-pixels = img.load()
+# img = Image.open("/home/vedant/Desktop/home-7-512.png")
+#
+# pixels = img.load()
+#
+# for i in range(img.size[0]):
+#     for j in range(img.size[1]):
+#         x,y,z = pixels[i,j][0],pixels[i,j][1],pixels[i,j][2]
+#         x,y,z = abs(x-255), abs(y-255), abs(z-255)
+#         pixels[i,j] = (x,y,z)
+#
+# img.save("home.png")
 
-for i in range(img.size[0]):
-    for j in range(img.size[1]):
-        x,y,z = pixels[i,j][0],pixels[i,j][1],pixels[i,j][2]
-        x,y,z = abs(x-255), abs(y-255), abs(z-255)
-        pixels[i,j] = (x,y,z)
+# mask = np.array(Image.open('/home/vedant/Desktop/home-7-512.png'))
 
-img.save("home.png")
+# hard code image properties for now
+height = 1080
+width = 1920
+background_color = 'black'
 
-mask = np.array(Image.open('home.png'))
-
-wc = WordCloud(stopwords=STOPWORDS,
-               mask=mask, background_color="white",
-               max_words=2000, max_font_size=256,
-               random_state=42, width=mask.shape[0],
-               height=mask.shape[0]).generate_from_frequencies(process_mem)
+wc = WordCloud(
+    background_color=background_color,
+    width=width,
+    height=height).generate_from_frequencies(process_mem)
 
 plt.imshow(wc)
 plt.axis("off")

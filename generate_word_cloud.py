@@ -1,16 +1,16 @@
-"""
-TODO:
-    1. Change hardcoded image properties to obtain from a config file
-    2. Better calculate the process-resource map
-    3. Separate generating word cloud and generating wallpaper logic
-"""
 
+# from PIL import Image, ImageOps"""
+# TODO:
+#     1. Change hardcoded image properties to obtain from a config file
+#     2. Better calculate the process-resource map
+#     3. Separate generating word cloud and generating wallpaper logic
+# """
+#
 import re
-
-# import numpy as np
-# import pandas as pd
-# from os import path
-# from PIL import Image, ImageOps
+#
+# # import numpy as np
+# # import pandas as pd
+# # from os import path
 
 
 from wordcloud import WordCloud  # , STOPWORDS, ImageColorGenerator

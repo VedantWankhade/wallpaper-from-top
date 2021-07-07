@@ -25,7 +25,7 @@ echo 'Setting up wallpaper'
 # in other words this script works only once
 
 # hardcoded path to wallpaper
-qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = "org.kde.image";d.currentConfigGroup = Array("Wallpaper", "org.kde.image", "General");d.writeConfig("Image", "/home/vedant/projects/wallpaper-from-top/wc_wall.png")}'
+qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = 'org.kde.image';d.currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');d.writeConfig('Image', '$(pwd)/wc_wall.png')}"
 #################################################################################
 
 echo 'Wallpaper set successfully'

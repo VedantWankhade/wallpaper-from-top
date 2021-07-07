@@ -23,7 +23,7 @@ process_mem = {}
 with open('top.out', 'r') as top_file:
     # skip first 7 rows
     top_output = top_file.read().split("\n")[7:]
-    print(top_output)
+    # print(top_output)
     # skip the last empty string (newline character)
     for line in top_output[:-1]:
         # print('1: ', line)

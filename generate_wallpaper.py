@@ -1,11 +1,5 @@
-# TODO:
-#     1. Change hardcoded image properties to obtain from a config file
-#     2. Better calculate the process-resource map
-#     3. Separate generating word cloud and generating wallpaper logic
-#
-
-from wordcloud import WordCloud  # , STOPWORDS, ImageColorGenerator
 import data_processor
+import word_cloud
 
 # Later figure out how to mask the wordcloud according to the most resource heavy process
 
@@ -24,16 +18,13 @@ import data_processor
 # mask = np.array(Image.open('/home/vedant/Desktop/home-7-512.png'))
 
 process_mem = data_processor.get_process_mem_mapping('top.out')
-print(process_mem)
+# print(process_mem)
 # hard code image properties for now
 height = 1080
 width = 1920
-background_color = 'black'
+background_color = 'white'
 
-wc = WordCloud(
-    background_color=background_color,
-    width=width,
-    height=height).generate_from_frequencies(process_mem)
+wc = word_cloud.generate_wordcloud(process_mem, width=width, height=height, background_color=background_color)
 
 wc.to_file('wc_wall.png')
 

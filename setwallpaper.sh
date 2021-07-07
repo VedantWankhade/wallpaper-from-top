@@ -1,22 +1,20 @@
 #!/bin/bash
 
 # TODO:
-# 1. Separate generating top output into different script
+# 1. Separate generating top output into different script ####### Done #############
 # 2. Generate top output and wallpaper each time
 # 3. Setting wallpaper automatically from Gnome DE
 
-# create new top output
-echo 'Fetching process information..'
-top -b -n 1 > top.out
+# get process information
+echo "Fetching process information"
+sh ./generate_top_output.sh
+echo "done"
 
 # generate new wallpaper
 echo 'Creating new wallpaper'
-
-sleep 10
 python ./generate_word_cloud.py
-
+echo "done"
 echo 'Setting up wallpaper'
-echo 'Please wait...'
 
 # gwenview ./wc_wall.png
 

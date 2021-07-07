@@ -15,7 +15,6 @@ def get_process_mem_mapping(file):
         #         processes += p + " "
         #     print(processes)
 
-
         # print(top_output)
         # skip the last empty string (newline character)
         for line in top_output[:-1]:
